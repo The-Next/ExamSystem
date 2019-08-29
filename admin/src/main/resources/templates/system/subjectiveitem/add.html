@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+<div class="layui-form timo-compile">
+    <form th:action="@{/system/subjectiveitem/save}">
+        <input type="hidden" name="id" th:if="${item}" th:value="${item.id}"/>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label required">题目</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" class="layui-textarea" name="subject">[[${item?.subject}]]</textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">分值</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="number" name="mark"  placeholder="请输入题目分值" th:value="${item?.mark}"/>
+            </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

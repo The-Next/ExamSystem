@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+
+<body>
+<div class="layui-form timo-compile">
+    <form th:action="@{/system/multiplechoice/save}">
+        <input type="hidden" name="id" th:if="${item}" th:value="${item.id}"/>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label required">题目</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" class="layui-textarea" name="subject">[[${item?.subject}]]</textarea>
+            </div>
+        </div>
+        <div id="list">
+        <div class="layui-form-item"  th:each="s ,sStat:${item?.multipleOptions}">
+            <input type="hidden" th:name="'multipleOptions['+${sStat.index}+'].id'" th:if="${s}" th:value="${s.id}"/>
+            <span class="neon-text" style="display: none">[[${sStat.index}]]</span>
+            <label class="layui-form-label required">选项</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" th:name="'multipleOptions['+${sStat.index}+'].m_option'"  placeholder="请输入选项信息" th:value="${s?.m_option}"/>
+                <a class="ajax-get" data-msg="此记录已保存，您是否确认删除？" th:href="@{/system/multiplechoice/deleteoption(ids=${s.id})}">删除</a>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否正确</label>
+                <div class="layui-input-block">
+                    <input type="radio" th:name="'multipleOptions['+${sStat.index}+'].isTrue'" th:checked="${s.isTrue==1}" value="1" title="对">
+                    <input type="radio" th:name="'multipleOptions['+${sStat.index}+'].isTrue'" th:checked="${s.isTrue==0}" value="0" title="错">
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn" type="button" id="add"><i class="fa fa-check-circle"></i>加一行</button>
+            <button class="layui-btn" type="button" id="delete"><i class="fa fa-check-circle"></i>删除最后一行</button>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">分值</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="number" name="mark"  placeholder="请输入题目分值" th:value="${item?.mark}"/>
+            </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+
+
+<script th:replace="/common/template :: script"></script>
+<script th:src="@{/js/plugins/jquery-3.3.1.min.js}" charset="utf-8"></script>
+<script th:src="@{/js/multiplechoice.js}" charset="utf-8"></script>
+</body>
+</html>
