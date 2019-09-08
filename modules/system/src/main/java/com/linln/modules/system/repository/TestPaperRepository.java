@@ -13,7 +13,7 @@ import java.util.List;
  * @Descript: RepositoryJpa
  * @Version 1.0
  */
-public interface TestPaperRepository extends JpaRepository<TestPaper,Integer> {
+public interface TestPaperRepository extends BaseJPA<TestPaper> {
 
     @Query("select new com.linln.modules.system.entity.TestPaperExtension(id,testname,startTime,endTime,duration,createDate,updateDate,manualOperation,publisher) from TestPaper")
     public List<TestPaperExtension> findTestPaperList();

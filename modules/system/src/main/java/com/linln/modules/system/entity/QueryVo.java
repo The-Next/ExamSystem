@@ -15,4 +15,5 @@ import java.util.List;
 public class QueryVo implements Serializable {
     private MultipleChoice multipleChoice;
     private List<MultipleOptions> multipleOptions;
+    private List<AchievementAnswer> achievementAnswer;
 }

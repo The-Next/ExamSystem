@@ -29,13 +29,17 @@ public class Achievement implements Serializable {
     @Column(name = "userId")
     private Integer userId;//用户编号
     @Column(name = "userName")
-    private String userName;//用户姓名
-    @Column(name = "singleChoicePoint")
+    private String userNickName;//用户姓名
+    @Column(name = "singleChoicePoint",columnDefinition = "integer default 0")
     private Integer singleChoicePoint;//单选成绩
-    @Column(name = "multipleChoicePoint")
+    @Column(name = "multipleChoicePoint",columnDefinition = "integer default 0")
     private Integer multipleChoicePoint;//多选成绩
-    @Column(name = "judgePoint")
+    @Column(name = "judgePoint",columnDefinition = "integer default 0")
     private Integer judgePoint;//判断题成绩
+    @Column(name = "isreadover",columnDefinition = "integer default 0")
+    private Integer isReadOver;//是否批阅
+    @Column(name = "totlePoint",columnDefinition = "integer default 0")
+    private Integer totlePoint;//总成绩
     @CreatedDate
     private Date createDate;
     @LastModifiedDate

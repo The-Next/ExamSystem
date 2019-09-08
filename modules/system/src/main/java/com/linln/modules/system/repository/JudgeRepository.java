@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Descript: JudgeJpa
  * @Version 1.0
  */
-public interface JudgeRepository extends JpaRepository<Judge,Integer> {
+public interface JudgeRepository extends BaseJPA<Judge> {
 }

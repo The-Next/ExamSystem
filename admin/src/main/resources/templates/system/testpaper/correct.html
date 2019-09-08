@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+    <link rel="stylesheet" th:href="@{/css/build.css}">
+</head>
+<body class="timo-layout-page">
+<div class="layui-row layui-col-space20">
+    <form class="layui-form" th:action="@{/system/testpaper/update}" method="post">
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-header timo-card-header">
+                    <span><i class="fa fa-bars"></i> 试卷信息</span>
+                    <i class="layui-icon layui-icon-refresh refresh-btn"></i>
+                </div>
+                <div class="layui-card-body">
+                    <div class="layui-form timo-compile element-panel">
+                        <div class="layui-form-item">
+                            <input type="hidden" name="id" th:if="${achievement}" th:value="${achievement.testId}"/>
+                            <input type="hidden" name="achievementid" th:if="${achievement}" th:value="${achievement.id}"/>
+                            <div class="layui-inline"><label class="layui-form-label">考试名称</label>
+                                <div class="layui-input-inline"><input type="text" name="testname" class="layui-input" th:value="${testPaper}" readonly="readonly"/></div>
+                            </div>
+                            <div class="layui-inline"><label class="layui-form-label">考生姓名</label>
+                                <div class="layui-input-inline"><input type="text" name="userNickName" class="layui-input" th:value="${achievement?.userNickName}" readonly="readonly"/></div>
+                            </div>
+                            <div class="layui-inline"><label class="layui-form-label">单选题成绩</label>
+                                <div class="layui-input-inline"><input type="text" name="singleChoicePoint" class="layui-input" th:value="${achievement?.singleChoicePoint}" readonly="readonly"/></div>
+                            </div>
+                            <div class="layui-inline"><label class="layui-form-label">多选题成绩</label>
+                                <div class="layui-input-inline"><input type="text" name="multipleChoicePoint" class="layui-input" th:value="${achievement?.multipleChoicePoint}" readonly="readonly"/></div>
+                            </div>
+                            <div class="layui-inline"><label class="layui-form-label">判断题成绩</label>
+                                <div class="layui-input-inline"><input type="text" name="judgePoint" class="layui-input" th:value="${achievement?.judgePoint}" readonly="readonly"/></div>
+                            </div>
+                            <div class="layui-inline"><label class="layui-form-label">总成绩</label>
+                                <div class="layui-input-inline"><input type="text" name="totlePoint" class="layui-input" th:value="${achievement?.totlePoint}" readonly="readonly"/></div>
+                            </div>
+
+                            <div class="timo-finally" th:each="item,itemStat:${list}">
+                            <input type="hidden" th:name="'achievementAnswer['+${itemStat.index}+'].id'" th:if="${item}" th:value="${item.id}"/>
+                            <div class="layui-form-item layui-form-text">
+                                <label class="layui-form-label">题目</label>
+                                <div class="layui-input-block">
+                                    <textarea class="layui-textarea" th:name="'achievementAnswer['+${itemStat.index}+'].subject'" readonly="readonly">[[${item?.subject}]]</textarea>
+                                </div>
+                            </div>
+                            <div class="layui-form-item layui-form-text">
+                                <label class="layui-form-label">答案</label>
+                                <div class="layui-input-block">
+                                    <textarea class="layui-textarea" th:name="'achievementAnswer['+${itemStat.index}+'].anwser'" readonly="readonly">[[${item?.subject}]]</textarea>
+                                </div>
+                            </div>
+                            <div class="layui-inline"><label class="layui-form-label">分数</label>
+                                <div class="layui-input-inline"><input type="number" th:name="'achievementAnswer['+${itemStat.index}+'].giveMark'" th:value="${item?.giveMark}" class="layui-input"/></div>
+                            </div>
+                            </div>
+
+                            <div class="layui-form-item timo-finally">
+                                <button class="layui-btn" type="submit"><i class="fa fa-check-circle"></i> 保存</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+<script type="text/javascript" th:src="@{/js/build.js}"></script>
+<script th:src="@{/lib/layui-v2.3.0/layui.js}"></script>
+</body>
+</html>

@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Descript: SingleChioceJpa
  * @Version 1.0
  */
-public interface SingleChioceRepository extends JpaRepository<SingleChoice,Integer> {
+public interface SingleChioceRepository extends BaseJPA<SingleChoice> {
 }

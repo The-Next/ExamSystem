@@ -14,7 +14,7 @@ import java.util.List;
  * @Descript: MultipleOptionsJpa
  * @Version 1.0
  */
-public interface MultipleOptionsRepository extends JpaRepository<MultipleOptions,Integer> {
+public interface MultipleOptionsRepository extends BaseJPA<MultipleOptions> {
     @Query("delete FROM MultipleOptions m where m.m_id = ?1")
     @Modifying
     @Transactional

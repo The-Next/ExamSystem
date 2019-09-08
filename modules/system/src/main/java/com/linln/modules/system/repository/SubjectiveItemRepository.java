@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Descript: SubjectiveItemJpa
  * @Version 1.0
  */
-public interface SubjectiveItemRepository extends JpaRepository<SubjectiveItem,Integer> {
+public interface SubjectiveItemRepository extends BaseJPA<SubjectiveItem> {
 }

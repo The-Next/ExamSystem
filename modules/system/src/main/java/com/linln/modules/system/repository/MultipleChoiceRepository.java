@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Descript: MultipleChoiceJpa
  * @Version 1.0
  */
-public interface MultipleChoiceRepository extends JpaRepository<MultipleChoice,Integer> {
+public interface MultipleChoiceRepository extends BaseJPA<MultipleChoice> {
 }
