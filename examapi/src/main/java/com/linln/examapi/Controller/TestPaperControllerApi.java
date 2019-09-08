@@ -25,6 +25,7 @@ import java.util.List;
  */
 @Api("考试管理")
 @RestController
+@CrossOrigin(allowCredentials = "true")
 @RequestMapping("/api/test")
 public class TestPaperControllerApi {
     @Resource

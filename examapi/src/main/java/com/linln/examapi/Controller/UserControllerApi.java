@@ -58,6 +58,7 @@ public class UserControllerApi { //后面加一个Api的原因是因为UserContr
      * @Version 1.0
      */
     @IgnorePermissions
+    @CrossOrigin(allowCredentials = "true")
     @PostMapping("/login")
     public ResultVo login(@RequestBody User u){
         // 根据用户名获取系统用户数据
@@ -87,6 +88,7 @@ public class UserControllerApi { //后面加一个Api的原因是因为UserContr
      * @Version 1.0
      */
     @JwtPermissions
+    @CrossOrigin(allowCredentials = "true")
     @ApiOperation("根据id获取用户信息")
     @GetMapping("/getById")
     public User getUser(){
