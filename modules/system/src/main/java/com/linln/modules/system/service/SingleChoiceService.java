@@ -20,5 +20,6 @@ public interface SingleChoiceService {
     @Deprecated
     public void update(SingleChoice singleChoice);//修改题目，不再使用，功能和update重合
     public Page<SingleChoice> getPageList();//查询所有题目,分页
+    public List<SingleChoice> getList();//查询所有题目
     public Optional<SingleChoice> getById(Integer id);//根据id获取题目
 }

@@ -75,7 +75,7 @@ public class TestPaperControllerApi {
      */
     @JwtPermissions
     @ApiOperation("批改试卷")
-    @PostMapping("/paperCorrection")
+    @RequestMapping("/paperCorrection")
     public ResultVo paperCorrection(@RequestBody TestPaper testPaper){
         try {
             //获取考试人员信息

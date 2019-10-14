@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -27,6 +28,11 @@ public class SubjectiveItemServiceimpl implements SubjectiveItemService {
     public Page<SubjectiveItem> getPageList() {
         PageRequest page = PageSort.pageRequest();
         return subjectiveItemRepository.findAll(page);
+    }
+
+    @Override
+    public List<SubjectiveItem> getList() {
+        return subjectiveItemRepository.findAll();
     }
 
     @Override

@@ -59,7 +59,7 @@ public class UserControllerApi { //后面加一个Api的原因是因为UserContr
      */
     @IgnorePermissions
     @CrossOrigin(allowCredentials = "true")
-    @PostMapping("/login")
+    @RequestMapping("/login")
     public ResultVo login(@RequestBody User u){
         // 根据用户名获取系统用户数据
         User user = userService.getByName(u.getUsername());

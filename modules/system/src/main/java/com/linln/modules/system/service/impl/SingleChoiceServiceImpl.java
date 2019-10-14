@@ -50,6 +50,11 @@ public class SingleChoiceServiceImpl implements SingleChoiceService {
     }
 
     @Override
+    public List<SingleChoice> getList() {
+        return singleChioceRepository.findAll();
+    }
+
+    @Override
     public Optional<SingleChoice> getById(Integer id) {
         return singleChioceRepository.findById(id);
     }

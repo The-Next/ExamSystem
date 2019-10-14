@@ -35,6 +35,11 @@ public class MultipleChoiceSeviceImpl implements MultipleChoiceSevice {
     }
 
     @Override
+    public List<MultipleChoice> getList() {
+        return multipleChoiceRepository.findAll();
+    }
+
+    @Override
     public void delete(Integer id) {
         multipleChoiceRepository.deleteById(id);
         multipleOptionsRepository.deleteByM_id(id);

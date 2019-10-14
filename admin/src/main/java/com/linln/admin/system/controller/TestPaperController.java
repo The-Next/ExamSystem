@@ -72,14 +72,14 @@ public class TestPaperController {
     @GetMapping("/add")
     @RequiresPermissions("system:testpaper:add")
     public String add(HttpServletRequest request){
-        Page<SingleChoice> singleChoicePage = singleChoiceService.getPageList();
-        Page<MultipleChoice> multipleChoicePage = multipleChoiceSevice.getPageList();
-        Page<Judge> judgePage = judgeService.getPageList();
-        Page<SubjectiveItem> subjectiveItemPage = subjectiveItemService.getPageList();
-        request.setAttribute("singlelist",singleChoicePage.getContent());
-        request.setAttribute("multiplelist",multipleChoicePage.getContent());
-        request.setAttribute("judgelist",judgePage.getContent());
-        request.setAttribute("subjectivelist",subjectiveItemPage.getContent());
+        List<SingleChoice> singleChoice = singleChoiceService.getList();
+        List<MultipleChoice> multipleChoice = multipleChoiceSevice.getList();
+        List<Judge> judge = judgeService.getList();
+        List<SubjectiveItem> subjectiveItem = subjectiveItemService.getList();
+        request.setAttribute("singlelist",singleChoice);
+        request.setAttribute("multiplelist",multipleChoice);
+        request.setAttribute("judgelist",judge);
+        request.setAttribute("subjectivelist",subjectiveItem);
         return "/system/testpaper/add";
     }
 

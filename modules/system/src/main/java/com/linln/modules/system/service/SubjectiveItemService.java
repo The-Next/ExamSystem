@@ -16,6 +16,7 @@ import java.util.Optional;
  */
 public interface SubjectiveItemService {
     public Page<SubjectiveItem> getPageList();//查询所有题目,分页
+    public List<SubjectiveItem> getList();//查询所有题目
     public void delete(Integer id);//根据id删除题目
     public void save(SubjectiveItem subjectiveItem);//保存、添加数据
     public Optional<SubjectiveItem> getById(Integer id);//根据id获取数据

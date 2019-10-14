@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -27,6 +28,11 @@ public class JudgeServiceImpl implements JudgeService {
     public Page<Judge> getPageList() {
         PageRequest page = PageSort.pageRequest();
         return judgeRepository.findAll(page);
+    }
+
+    @Override
+    public List<Judge> getList() {
+        return judgeRepository.findAll();
     }
 
     @Override

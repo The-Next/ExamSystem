@@ -18,6 +18,7 @@ import java.util.Optional;
 
 public interface MultipleChoiceSevice {
     public Page<MultipleChoice> getPageList();//查询所有题目,分页
+    public List<MultipleChoice> getList();//查询所有题目
     public void delete(Integer id);//根据id删除题目
     public void save(MultipleChoice multipleChoice, List<MultipleOptions> multipleOptionsList);//保存、添加数据
     public Optional<MultipleChoice> getById(Integer id);//根据id获取数据
